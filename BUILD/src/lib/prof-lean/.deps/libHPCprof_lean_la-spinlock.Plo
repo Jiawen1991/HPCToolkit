@@ -1,0 +1,43 @@
+libHPCprof_lean_la-spinlock.lo: ../../../../src/lib/prof-lean/spinlock.c \
+ /usr/include/stdc-predef.h ../../../../src/lib/prof-lean/spinlock.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdbool.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdint.h /usr/include/stdint.h \
+ /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+ /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+ /usr/include/x86_64-linux-gnu/bits/wchar.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h \
+ ../../../../src/lib/prof-lean/atomic-op.h \
+ /home/jw/hpctoolkit/hpctoolkit/BUILD/../src/include/gcc-attr.h \
+ ../../../../src/lib/prof-lean/atomic-op-gcc.h
+
+/usr/include/stdc-predef.h:
+
+../../../../src/lib/prof-lean/spinlock.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdbool.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdint.h:
+
+/usr/include/stdint.h:
+
+/usr/include/features.h:
+
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:
+
+/usr/include/x86_64-linux-gnu/bits/wordsize.h:
+
+/usr/include/x86_64-linux-gnu/gnu/stubs.h:
+
+/usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
+
+/usr/include/x86_64-linux-gnu/bits/wchar.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h:
+
+../../../../src/lib/prof-lean/atomic-op.h:
+
+/home/jw/hpctoolkit/hpctoolkit/BUILD/../src/include/gcc-attr.h:
+
+../../../../src/lib/prof-lean/atomic-op-gcc.h:

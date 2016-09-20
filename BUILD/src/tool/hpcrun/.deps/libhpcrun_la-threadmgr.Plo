@@ -1,0 +1,38 @@
+libhpcrun_la-threadmgr.lo: ../../../../src/tool/hpcrun/threadmgr.c \
+ /usr/include/stdc-predef.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdint.h /usr/include/stdint.h \
+ /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+ /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+ /usr/include/x86_64-linux-gnu/bits/wchar.h \
+ /home/jw/hpctoolkit/hpctoolkit/BUILD/../src/lib/prof-lean/atomic-op.h \
+ /home/jw/hpctoolkit/hpctoolkit/BUILD/../src/include/gcc-attr.h \
+ /home/jw/hpctoolkit/hpctoolkit/BUILD/../src/lib/prof-lean/atomic-op-gcc.h \
+ ../../../../src/tool/hpcrun/threadmgr.h
+
+/usr/include/stdc-predef.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdint.h:
+
+/usr/include/stdint.h:
+
+/usr/include/features.h:
+
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:
+
+/usr/include/x86_64-linux-gnu/bits/wordsize.h:
+
+/usr/include/x86_64-linux-gnu/gnu/stubs.h:
+
+/usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
+
+/usr/include/x86_64-linux-gnu/bits/wchar.h:
+
+/home/jw/hpctoolkit/hpctoolkit/BUILD/../src/lib/prof-lean/atomic-op.h:
+
+/home/jw/hpctoolkit/hpctoolkit/BUILD/../src/include/gcc-attr.h:
+
+/home/jw/hpctoolkit/hpctoolkit/BUILD/../src/lib/prof-lean/atomic-op-gcc.h:
+
+../../../../src/tool/hpcrun/threadmgr.h:

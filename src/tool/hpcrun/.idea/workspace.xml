@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" assignedExecutableTargets="true" buildAllGenerated="true">
+    <generated>
+      <config projectName="hpcrun" targetName="hpcrun" />
+    </generated>
+  </component>
+  <component name="CMakeSettings" AUTO_RELOAD="false" GENERATION_PASS_SYSTEM_ENVIRONMENT="true">
+    <ADDITIONAL_GENERATION_ENVIRONMENT>
+      <envs />
+    </ADDITIONAL_GENERATION_ENVIRONMENT>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="bc674cbb-7f0d-4813-88c1-774b1f2804d6" name="Default" comment="" />
+    <ignored path="hpcrun.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="hpcrun" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="ompt-interface.c" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ompt/ompt-interface.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="535" column="0" selection-start-line="535" selection-start-column="0" selection-end-line="535" selection-end-column="0" />
+              <folding>
+                <marker date="1474403017334" expanded="true" signature="5549:5919" ph="{...}" />
+                <marker date="1474403017334" expanded="true" signature="5961:6262" ph="{...}" />
+                <marker date="1474403017334" expanded="true" signature="6304:6334" ph="{...}" />
+                <marker date="1474403017334" expanded="true" signature="6596:6802" ph="{...}" />
+                <marker date="1474403017334" expanded="true" signature="6848:7278" ph="{...}" />
+                <marker date="1474403017334" expanded="true" signature="7627:7959" ph="{...}" />
+                <marker date="1474403017334" expanded="true" signature="8008:8409" ph="{...}" />
+                <marker date="1474403017334" expanded="true" signature="8457:8868" ph="{...}" />
+                <marker date="1474403017334" expanded="true" signature="8919:9303" ph="{...}" />
+                <marker date="1474403017334" expanded="true" signature="9620:9768" ph="{...}" />
+                <marker date="1474403017334" expanded="true" signature="10136:10564" ph="{...}" />
+                <marker date="1474403017334" expanded="true" signature="11048:11137" ph="{...}" />
+                <marker date="1474403017334" expanded="true" signature="11170:11226" ph="{...}" />
+                <marker date="1474403017334" expanded="true" signature="11447:11503" ph="{...}" />
+                <marker date="1474403017334" expanded="true" signature="11534:11588" ph="{...}" />
+                <marker date="1474403017334" expanded="true" signature="11821:11879" ph="{...}" />
+                <marker date="1474403017334" expanded="true" signature="12129:12425" ph="{...}" />
+                <marker date="1474403017334" expanded="true" signature="12465:12533" ph="{...}" />
+                <marker date="1474403017334" expanded="true" signature="12563:12620" ph="{...}" />
+                <marker date="1474403017334" expanded="true" signature="12932:14235" ph="{...}" />
+                <marker date="1474403017334" expanded="true" signature="14568:15635" ph="{...}" />
+                <marker date="1474403017334" expanded="true" signature="16206:16877" ph="{...}" />
+                <marker date="1474403017334" expanded="true" signature="16241:16314" ph="..." />
+                <marker date="1474403017334" expanded="true" signature="16915:16944" ph="{...}" />
+                <marker date="1474403017334" expanded="true" signature="16984:17384" ph="{...}" />
+                <marker date="1474403017334" expanded="true" signature="17609:17634" ph="{...}" />
+                <marker date="1474403017334" expanded="true" signature="17983:18061" ph="{...}" />
+                <marker date="1474403017334" expanded="true" signature="18119:18212" ph="{...}" />
+                <marker date="1474403017334" expanded="true" signature="18268:18348" ph="{...}" />
+                <marker date="1474403017334" expanded="true" signature="18402:18521" ph="{...}" />
+                <marker date="1474403017334" expanded="true" signature="18560:18664" ph="{...}" />
+                <marker date="1474403017334" expanded="true" signature="18937:19185" ph="{...}" />
+                <marker date="1474403017334" expanded="true" signature="19227:19297" ph="{...}" />
+                <marker date="1474403017334" expanded="true" signature="19338:19406" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ompt-interface.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ompt/ompt-interface.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="omp-idle.c" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sample-sources/omp-idle.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="omp-mutex.c" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sample-sources/omp-mutex.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="blame-sample-source.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sample-sources/blame-shift/blame-sample-source.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2055">
+              <caret line="137" column="0" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
+              <folding>
+                <element signature="e#2822#2849#0" expanded="true" />
+                <element signature="e#4939#5067#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/ompt/ompt-interface.c" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="75" />
+    <option name="y" value="64" />
+    <option name="width" value="1196" />
+    <option name="height" value="757" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hpcrun" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hpcrun" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hpcrun" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RunManager" selected="Application.Build All">
+    <configuration default="true" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" PASS_PARENT_ENVS_2="true" PROJECT_NAME="hpcrun" TARGET_NAME="hpcrun" CONFIG_NAME="Debug" TEST_MODE="SUITE_TEST">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="hpcrun" TARGET_NAME="hpcrun" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="hpcrun" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="hpcrun" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run-script" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Attests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="hpcrun" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="hpcrun" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Nosetests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="hpcrun" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="hpcrun" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="py.test">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="hpcrun" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="testToRun" value="" />
+      <option name="keywords" value="" />
+      <option name="params" value="" />
+      <option name="USE_PARAM" value="false" />
+      <option name="USE_KEYWORD" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="hpcrun" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="hpcrun" TARGET_NAME="hpcrun" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="hpcrun" RUN_TARGET_NAME="hpcrun">
+      <envs />
+      <method />
+    </configuration>
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="Application.Build All" />
+      <item index="1" class="java.lang.String" itemvalue="Application.hpcrun" />
+    </list>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bc674cbb-7f0d-4813-88c1-774b1f2804d6" name="Default" comment="" />
+      <created>1474388587684</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1474388587684</updated>
+      <workItem from="1474388589849" duration="4967000" />
+      <workItem from="1474403333020" duration="5000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="4972000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="75" y="64" width="1196" height="757" extended-state="0" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/ompt/ompt-interface.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1474403017334" expanded="true" signature="5549:5919" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="5961:6262" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="6304:6334" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="6596:6802" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="6848:7278" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="7627:7959" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="8008:8409" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="8457:8868" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="8919:9303" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="9620:9768" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="10136:10564" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="11048:11137" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="11170:11226" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="11447:11503" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="11534:11588" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="11821:11879" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="12129:12425" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="12465:12533" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="12563:12620" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="12932:14235" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="14568:15635" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="16206:16877" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="16241:16314" ph="..." />
+            <marker date="1474403017334" expanded="true" signature="16915:16944" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="16984:17384" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="17609:17634" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="17983:18061" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="18119:18212" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="18268:18348" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="18402:18521" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="18560:18664" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="18937:19185" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="19227:19297" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="19338:19406" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ompt/ompt-interface.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample-sources/omp-idle.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample-sources/omp-mutex.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample-sources/blame-shift/blame-sample-source.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2055">
+          <caret line="137" column="0" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
+          <folding>
+            <element signature="e#2822#2849#0" expanded="true" />
+            <element signature="e#4939#5067#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample-sources/blame-shift/blame-sample-source.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2055">
+          <caret line="137" column="0" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
+          <folding>
+            <element signature="e#2822#2849#0" expanded="true" />
+            <element signature="e#4939#5067#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample-sources/omp-mutex.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample-sources/omp-idle.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ompt/ompt-interface.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ompt/ompt-interface.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="535" column="0" selection-start-line="535" selection-start-column="0" selection-end-line="535" selection-end-column="0" />
+          <folding>
+            <marker date="1474403017334" expanded="true" signature="5549:5919" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="5961:6262" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="6304:6334" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="6596:6802" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="6848:7278" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="7627:7959" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="8008:8409" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="8457:8868" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="8919:9303" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="9620:9768" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="10136:10564" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="11048:11137" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="11170:11226" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="11447:11503" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="11534:11588" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="11821:11879" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="12129:12425" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="12465:12533" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="12563:12620" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="12932:14235" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="14568:15635" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="16206:16877" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="16241:16314" ph="..." />
+            <marker date="1474403017334" expanded="true" signature="16915:16944" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="16984:17384" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="17609:17634" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="17983:18061" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="18119:18212" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="18268:18348" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="18402:18521" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="18560:18664" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="18937:19185" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="19227:19297" ph="{...}" />
+            <marker date="1474403017334" expanded="true" signature="19338:19406" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

@@ -118,6 +118,21 @@ static void event_fatal_error(int ev_code, int papi_ret);
  * local variables
  *****************************************************************************/
 
+//rapl
+//#if 0
+ int rapl_EventSet = PAPI_NULL;
+ long long rapl_EventValues[MAX_EVENTS];
+long long rapl_prev_EventValues[MAX_EVENTS];
+ int rapl_EventCode;
+long long time1,time2,time3;
+double elapsed_time;
+volatile package_master_set = 0;
+bool master_start = false;
+pthread_t package_master = 0;
+long long rapl_master_data;
+volatile master_counter = 0;
+//bool started = false;
+//#endif
 
 // Special case to make PAPI_library_init() a soft failure.
 // Make sure that we call no other PAPI functions.
@@ -252,6 +267,8 @@ METHOD_FN(init)
   //         hpcrun must ignore these threads to ensure that PAPI_library_init
   //         succeeds
   //
+
+
   monitor_disable_new_threads();
   if (disable_papi_cuda) {
     TMSG(PAPI_C, "Will disable PAPI cuda component (if component is active)");
@@ -271,6 +288,8 @@ METHOD_FN(init)
 
   TMSG(PAPI_C,"PAPI_library_init = %d", ret);
   TMSG(PAPI_C,"PAPI_VER_CURRENT =  %d", PAPI_VER_CURRENT);
+
+
 
   // Delay reporting PAPI_library_init() errors.  This allows running
   // with other events if PAPI is not available.
@@ -309,6 +328,10 @@ METHOD_FN(thread_init)
     EEMSG("PAPI_thread_init NOT ok, retval = %d", retval);
     monitor_real_abort();
   }
+  if (!package_master_set) {
+	if (__sync_bool_compare_and_swap(&package_master_set, 0, 1))
+		package_master = pthread_self;
+  }
   TMSG(PAPI, "thread init OK");
 }
 
@@ -331,12 +354,12 @@ METHOD_FN(start)
 {
   int cidx;
   TMSG(PAPI, "start");
-
   if (papi_unavail) { 
     return; 
   }
 
   thread_data_t* td = hpcrun_get_thread_data();
+  td->sequence = 0;
   source_state_t my_state = TD_GET(ss_state)[self->sel_idx];
 
   // make PAPI start idempotent.  the application can turn on sampling
@@ -359,7 +382,9 @@ METHOD_FN(start)
       }
       else {
 	TMSG(PAPI,"starting PAPI event set %d for component %d", ci->eventSet, cidx);
+	printf("starting PAPI event set %d for component %d \n\n", ci->eventSet, cidx);
 	int ret = PAPI_start(ci->eventSet);
+
 	if (ret == PAPI_EISRUN) {
 	  // this case should not happen, but maybe it's not fatal
 	  EMSG("PAPI returned EISRUN for event set %d component %d", ci->eventSet, cidx);
@@ -371,12 +396,18 @@ METHOD_FN(start)
 	}
 
 	if (ci->some_derived) {
-	  ret = PAPI_read(ci->eventSet, ci->prev_values);
+	  //ret = PAPI_read(ci->eventSet, ci->prev_values);
+       if (pthread_self == package_master) {
+	ret = PAPI_read( rapl_EventSet, rapl_prev_EventValues);
+    //printf("rapl_prev_EventValues:%lld\n",rapl_prev_EventValues[0]);
+    //printf("papi_prev_EventValues:%lld\n",ci->prev_values[1]);
 	  if (ret != PAPI_OK) {
 	    EMSG("PAPI_read of event set %d for component %d failed with %s (%d)", 
 		 ci->eventSet, cidx, PAPI_strerror(ret), ret);
 	  }
 	}
+	}
+
       }
     }
   }
@@ -429,15 +460,30 @@ METHOD_FN(stop)
 	long_long values[nevents+2];
 	//	long_long *values = (long_long *) alloca(sizeof(long_long) * (nevents+2));
 	int ret = PAPI_stop(ci->eventSet, values);
+	printf("stop w event set = %d,values:%lld \n\n", ci->eventSet,values[0]);
+	
 	if (ret != PAPI_OK){
 	  EMSG("Failed to stop PAPI for eventset %d. Return code = %d ==> %s",
 	       ci->eventSet, ret, PAPI_strerror(ret));
 	}
       }
     }
-  }
+
+#if 0
+if(ci->eventSet == 0)
+{
+time3=PAPI_get_real_nsec();
+elapsed_time=((double)(time3-time1))/1.0e9;
+PAPI_stop( rapl_EventSet, rapl_EventValues);
+printf("%12.6f J\t(Average Power %.1fW)\tElapsed time:%.8fs\n\n",(double)rapl_EventValues[0]/1.0e9,(double)rapl_EventValues[0]/1.0e9/elapsed_time,elapsed_time);
+}
+#endif  
 
   TD_GET(ss_state)[self->sel_idx] = STOP;
+
+
+  }
+
 }
 
 static void
@@ -544,6 +590,7 @@ METHOD_FN(process_event_list, int lush_metrics)
     if (event_is_derived(self->evl.events[i].event)
 	|| self->evl.events[i].thresh == 0) {
       TMSG(PAPI, "using proxy sampling for event %s", buffer);
+      printf("using proxy sampling for event %s\n\n", buffer);
       strcat(buffer, " (proxy)");
       self->evl.events[i].thresh = 1;
       derived[i] = 1;
@@ -626,6 +673,15 @@ METHOD_FN(gen_event_set, int lush_metrics)
     ci->sync_stop = sync_stop_for_component(i);
     memset(ci->prev_values, 0, sizeof(ci->prev_values));
   }
+  if (pthread_self == package_master && !master_start) {
+master_start = true;
+PAPI_create_eventset( &rapl_EventSet );
+PAPI_event_name_to_code("rapl:::PACKAGE_ENERGY:PACKAGE0",&rapl_EventCode);
+printf("Event: %x start\n\n",rapl_EventCode);
+PAPI_add_event( rapl_EventSet,rapl_EventCode);
+time1=PAPI_get_real_nsec();
+PAPI_start(rapl_EventSet);
+}
 
   // record the component state in thread state
   td->ss_info[self->sel_idx].ptr = psi;
@@ -634,17 +690,27 @@ METHOD_FN(gen_event_set, int lush_metrics)
   for (i = 0; i < nevents; i++) {
     int evcode = self->evl.events[i].event;
     int cidx = PAPI_get_event_component(evcode);
-    
-    ret = component_add_event(psi, cidx, evcode);
+	ret = component_add_event(psi, cidx, evcode);
     psi->component_info[cidx].some_derived |= event_is_derived(evcode);
+
     TMSG(PAPI, "Added event code %x to component %d", evcode, cidx);
     {
       char buffer[PAPI_MAX_STR_LEN];
       PAPI_event_code_to_name(evcode, buffer);
+#if 0
+        if (strstr(buffer,"rapl")){
+	PAPI_add_event(rapl_event_set,evcode);
+	printf("Add rapl_event_set successfully:%s\n",buffer); 
+	rapl_event_count++;
+	}
+#endif
       TMSG(PAPI, 
 	   "PAPI_add_event(eventSet=%%d, event_code=%x (event name %s)) component=%d", 
 	   /* eventSet, */ evcode, buffer, cidx);
+	//printf("PAPI_add_event(eventSet=%%d, event_code=%x (event name %s)) component=%d\n\n",
+	//	/* eventSet, */ evcode, buffer, cidx);
     }
+
     if (ret != PAPI_OK) {
       EMSG("failure in PAPI gen_event_set(): PAPI_add_event() returned: %s (%d)",
 	   PAPI_strerror(ret), ret);
@@ -665,7 +731,6 @@ METHOD_FN(gen_event_set, int lush_metrics)
     long thresh = self->evl.events[i].thresh;
     int cidx = PAPI_get_event_component(evcode);
     int eventSet = get_component_event_set(psi, cidx);
-    
     // **** No overflow for synchronous events ****
     // **** Use component-specific setup for synchronous events ****
     if (component_uses_sync_samples(cidx)) {
@@ -681,6 +746,7 @@ METHOD_FN(gen_event_set, int lush_metrics)
 			  papi_event_handler);
       TMSG(PAPI, "PAPI_overflow(eventSet=%d, evcode=%x, thresh=%d) = %d", 
 	   eventSet, evcode, thresh, ret);
+//printf("PAPI_overflow(eventSet=%d, evcode=%x, thresh=%d) = %d\n", eventSet, evcode, thresh, ret);
       if (ret != PAPI_OK) {
 	EMSG("failure in PAPI gen_event_set(): PAPI_overflow() returned: %s (%d)",
 	     PAPI_strerror(ret), ret);
@@ -812,6 +878,7 @@ event_is_derived(int ev_code)
       || strcmp(info.derived, "DERIVED_CMPD") == 0) {
     return 0;
   }
+
   return 1;
 }
 
@@ -847,6 +914,7 @@ papi_event_handler(int event_set, void *pc, long long ovec,
   int my_event_codes[MAX_EVENTS];
   int my_event_codes_count = MAX_EVENTS;
 
+//printf("event_set: %d\n",event_set);
   // if sampling disabled explicitly for this thread, skip all processing
   if (hpcrun_thread_suppress_sample || sample_filters_apply()) return;
 
@@ -864,18 +932,28 @@ papi_event_handler(int event_set, void *pc, long long ovec,
   }
 
   int cidx = PAPI_get_eventset_component(event_set);
+//printf("component:%d\n",cidx);
   thread_data_t *td = hpcrun_get_thread_data();
   papi_source_info_t *psi = td->ss_info[self->sel_idx].ptr;
   papi_component_info_t *ci = &(psi->component_info[cidx]);
 
+ret = PAPI_list_events(event_set, my_event_codes, &my_event_codes_count);
+
+
   if (ci->some_derived) {
-    ret = PAPI_read(event_set, values);
+    //ret = PAPI_read(event_set, values);
+	if (pthread_self == package_master) {
+	ret = PAPI_read( rapl_EventSet, rapl_EventValues);
+    //printf("rapl_EventValues:%lld\n",rapl_EventValues[0]);
+    //printf("PAPI_values:%lld\n",values[1]);
+    
     if (ret != PAPI_OK) {
       EMSG("PAPI_read failed with %s (%d)", PAPI_strerror(ret), ret);
     }
+   }
   }
 
-  ret = PAPI_get_overflow_event_index(event_set, ovec, my_events, 
+ ret = PAPI_get_overflow_event_index(event_set, ovec, my_events, 
 				      &my_event_count);
   if (ret != PAPI_OK) {
     TMSG(PAPI_SAMPLE, "papi_event_handler: event set %d ovec %ld "
@@ -886,7 +964,6 @@ papi_event_handler(int event_set, void *pc, long long ovec,
     if (ret != PAPI_OK) {
       TMSG(PAPI_SAMPLE, "PAPI_list_events failed inside papi_event_handler."
 	   "Return code = %d ==> %s", ret, PAPI_strerror(ret));
-    } else {
       for (i = 0; i < my_event_codes_count; i++) {
         TMSG(PAPI_SAMPLE, "event set %d event code %d = %x\n", 
 	     event_set, i, my_event_codes[i]);
@@ -901,7 +978,6 @@ papi_event_handler(int event_set, void *pc, long long ovec,
     hpcrun_abort("PAPI_list_events failed inside papi_event_handler."
 		 "Return code = %d ==> %s", ret, PAPI_strerror(ret));
   }
-
   for (i = 0; i < my_event_count; i++) {
     // FIXME: SUBTLE ERROR: metric_id may not be same from hpcrun_new_metric()!
     // This means lush's 'time' metric should be *last*
@@ -939,14 +1015,29 @@ papi_event_handler(int event_set, void *pc, long long ovec,
   if (ci->some_derived) {
     for (i = 0; i < nevents; i++) {
       if (derived[i]) {
+	//hpcrun_sample_callpath(context, hpcrun_event2metric(self, i),
+	//		       values[i] - ci -> prev_values[i], 0, 0);
+        if (pthread_self == package_master) {
+		rapl_master_data = rapl_EventValues[0] - rapl_prev_EventValues[0];
 	hpcrun_sample_callpath(context, hpcrun_event2metric(self, i),
-			       values[i] - ci->prev_values[i], 0, 0);
+                             rapl_master_data, 0, 0);
+                master_counter ++;
+        } else {
+//		while (td->sequence >= master_counter);
+//		td->sequence ++;
+	}
+        
+	//printf("values[%d]:%d, ci -> prev_values[%d]:%d\n",i,values[i],i,ci -> prev_values[i]);	
+	//printf("rapl_values[%d]:%d, rapl_prev_values[%d]:%d\n",i-1,rapl_EventValues[0],i-1,rapl_prev_EventValues[0]);	
       }
     }
 
-    ret = PAPI_read(event_set, ci->prev_values);
+    //ret = PAPI_read(event_set, ci->prev_values);
+    if (pthread_self == package_master) {
+	ret = PAPI_read( rapl_EventSet, rapl_prev_EventValues);
     if (ret != PAPI_OK) {
       EMSG("PAPI_read failed with %s (%d)", PAPI_strerror(ret), ret);
+    }
     }
   }
 

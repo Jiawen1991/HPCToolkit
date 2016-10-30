@@ -28,6 +28,7 @@
 #include <hpcrun/safe-sampling.h>
 #include <hpcrun/thread_data.h>
 
+#include <papi.h>
 
 
 /******************************************************************************
@@ -44,9 +45,15 @@
 
 extern int omp_get_level(void);
 extern int omp_get_thread_num(void);
-
-
-
+//rapl
+#if 0
+ int rapl_EventSet = PAPI_NULL;
+ long long rapl_values[1];
+ int rapl_EventCode;
+long long rapl_value1,rapl_value2;
+long long time1,time2,time3;
+double elapsed_time;
+#endif
 /******************************************************************************
  * private operations
  *****************************************************************************/
@@ -62,10 +69,12 @@ ompt_parallel_begin_internal(
   thread_data_t *td = hpcrun_get_thread_data();
   uint64_t parent_region_id = hpcrun_ompt_get_parallel_id(0);
 
+
   if (parent_region_id == 0) {
     // mark the master thread in the outermost region 
     // (the one that unwinds to FENCE_MAIN)
     td->master = 1;
+	
   }
 
   cct_node_t *callpath = 
@@ -75,7 +84,9 @@ ompt_parallel_begin_internal(
   assert(region_id != 0);
   ompt_region_map_insert((uint64_t) region_id, callpath);
 
+
   if (!td->master) {
+	//printf("ompt_parallel_begin_internal\n\n");
     if (td->outer_region_id == 0) {
       // this callback occurs in the context of the parent, so
       // the enclosing parallel region is available at level 0
@@ -144,6 +155,23 @@ ompt_parallel_end_internal(
     resolve_cntxt_fini(td);
     TD_GET(team_master) = 0;
   }
+#if 0
+//if(parallel_id == 10 || parallel_id == 19)
+if(parallel_id == 12 || parallel_id == 23)
+{
+time3=PAPI_get_real_nsec();
+elapsed_time=((double)(time3-time2))/1.0e9;
+double total_time=((double)(time3-time1))/1.0e9;
+PAPI_stop( rapl_EventSet, rapl_values);
+rapl_value2 = rapl_values[0] - rapl_value1;
+printf("Kernel Evergy: %12.6f J\tAverage Power: %.1fW\tElapsed time: %.8fS\n\n",(double)rapl_value2/1.0e9,(double)rapl_value2/1.0e9/elapsed_time,elapsed_time);
+
+printf("Total Evergy: %12.6f J\tAverage Power: %.1fW\tElapsed time: %.8fS\n\n",(double)rapl_values[0]/1.0e9,(double)rapl_values[0]/1.0e9/total_time,total_time);
+
+printf("Kernel/Total Evergy \%: %12.1f\% \tKernel/Total Elapsed time \%: %.1f\%\n\n",(double)rapl_value2/rapl_values[0]*100,(double)elapsed_time/total_time*100);
+}
+#endif
+
   hpcrun_safe_exit();
 }
 
@@ -181,8 +209,38 @@ ompt_parallel_begin(
        hpcrun_ompt_get_parallel_id(0));
   hpcrun_safe_exit();
 #endif
+		//printf("ompt_parallel_begin_internal\n\n");
   int levels_to_skip = LEVELS_TO_SKIP;
+#if 0
+if(region_id == 1)
+{
+PAPI_library_init( PAPI_VER_CURRENT );
+PAPI_create_eventset( &rapl_EventSet );
+PAPI_event_name_to_code("rapl:::PACKAGE_ENERGY:PACKAGE0",&rapl_EventCode);
+char buffer[128];
+PAPI_event_code_to_name(rapl_EventCode, buffer);
+printf("Event: %s start\n\n",buffer);
+PAPI_add_event( rapl_EventSet,rapl_EventCode);
+time1=PAPI_get_real_nsec();
+PAPI_start(rapl_EventSet);
+}
+#endif
+
   ompt_parallel_begin_internal(region_id, ++levels_to_skip, invoker); 
+
+#if 0
+//if(region_id == 10 || region_id == 19)
+if(region_id == 12 || region_id == 23)
+{
+time2=PAPI_get_real_nsec();
+elapsed_time=((double)(time2-time1))/1.0e9;
+PAPI_read( rapl_EventSet, rapl_values);
+rapl_value1=rapl_values[0];
+printf("Before Kernel Evergy: %12.6f J\tAverage Power: %.1fW\tElapsed time: %.8fS\n\n",(double)rapl_value1/1.0e9,(double)rapl_value1/1.0e9/elapsed_time,elapsed_time);
+}
+#endif
+//printf("region_id:%d\n\n",(int)region_id);
+
 }
 
 #endif
@@ -210,9 +268,13 @@ ompt_parallel_end(
   hpcrun_safe_enter();
   TMSG(DEFER_CTXT, "team end   id=0x%lx task_id=%x ompt_get_parallel_id(0)=0x%lx", parallel_id, task_id, 
        hpcrun_ompt_get_parallel_id(0));
+//printf( "team end   id=0x%lx task_id=%x ompt_get_parallel_id(0)=0x%lx", parallel_id, task_id,  hpcrun_ompt_get_parallel_id(0));
   hpcrun_safe_exit();
+		//printf("ompt_parallel_end_internal\n\n");
   int levels_to_skip = LEVELS_TO_SKIP;
   ompt_parallel_end_internal(parallel_id, ++levels_to_skip, invoker);
+
+//printf("parallel_id:%d\n\n",(int)parallel_id);
 }
 #endif
 
@@ -227,7 +289,9 @@ ompt_parallel_region_register_callbacks(
                     (ompt_callback_t)ompt_parallel_begin);
   assert(ompt_event_may_occur(retval));
 
+
   retval = ompt_set_callback_fn(ompt_event_parallel_end,
                     (ompt_callback_t)ompt_parallel_end);
   assert(ompt_event_may_occur(retval));
+
 }
